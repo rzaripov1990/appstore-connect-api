@@ -1,0 +1,32 @@
+@token=eyJhbGciOiJFUzI1NiIsImtpZCI6IlBUVDVQN1E2UjciLCJ0eXAiOiJKV1QifQ.eyJhdWQiOiJhcHBzdG9yZWNvbm5lY3QtdjEiLCJiaWQiOiJrei5rbWYuYmFuay5kZXYiLCJleHAiOjE3MDgwMDI0NDIsImlhdCI6MTcwODAwMTMwMiwiaXNzIjoiYzc5ZjgzMDUtMjMwMi00Yjg5LWEwYzktNjM0ZTRhMTVkYjhjIn0.MBVAoCm7N2XPzlR3LVe5aN5ttFqjlNYzfkGuArDwwVR8ETZgx6_gxha9C1DIUepzBj-Xm66LfjG1gRlR4oES9w
+
+GET https://api.appstoreconnect.apple.com/v1/apps
+Authorization: Bearer {{token}}
+
+###
+GET https://api.appstoreconnect.apple.com/v1/builds/8055b121-18b7-40c3-8a65-b5c81937b646/app
+Authorization: Bearer {{token}}
+
+###
+GET https://api.appstoreconnect.apple.com/v1/apps/6469620437/ciProduct
+Authorization: Bearer {{token}}
+
+###
+GET https://api.appstoreconnect.apple.com/v1/ciProducts/F559F201-E958-4425-BFD2-41254DEB0FAB/buildRuns?limit=200
+Authorization: Bearer {{token}}
+ 
+###
+GET https://api.appstoreconnect.apple.com/v1/ciBuildRuns/88b27bf7-a58a-4b2b-b43d-4f1857622db3/actions
+Authorization: Bearer {{token}}
+
+###
+GET https://api.appstoreconnect.apple.com/v1/ciBuildActions/50b8d075-f08c-4591-ae3c-de246778d8cd/artifacts
+Authorization: Bearer {{token}}
+
+### 
+GET https://api.appstoreconnect.apple.com/v1/ciArtifacts/e35db4c8-e843-41ae-bee3-c07665e2d533
+Authorization: Bearer {{token}}
+
+###
+GET https://cvws.icloud-content.com/B/AZBWUCvVyj8LzKIZwSiEcRhcEhQGAUqXp_YQZ61FtTD6P7pR7YUuC_bU/KMFBank+Build+58+Archive+for+dbo_ios_dev+on+iOS.xcarchive.zip?o=AtHizUuP3u1nSjNm8ztslVJo5Qv8CmDn1wbFlsWEm6bVYskbrmHMyqYhltmgEI98bFoHw4g_MFKP2fHNjwxcDW3IrtE05-ED5HacP5YCNymUDe4HCwS4cBNeenWKV4-C1Q&v=1&x=3&a=CAoge1QwlWIxUjIkLy_aJko_L-ZodFAfzlnPgjdj2qxoB6oS6QEQvvS62toxGN7r8draMSIBAFIEXBIUBloELgv21GpkdpylcbiaK0WHV_gNvNDnLhsS7UAHX7Aik7D04PTky5G1Swf_HsV-8qhgpeZgKmYbrRQe7T6iYlQRTSH43XZsGoLs5BMrJ70Od4su7JbfHDwkQHSgh7J__IMC-lfx4Y36XHyxenJkRJH8AB3d7lKA1QqF5ZX9S4_kqLanLeWfBkKPT72qJ7POxOYmwTpbHVWvZND8Pvx_JRkUYP1gRNBoxHOwMhBt03VCtgyCnT-d2KVxv8D5eFkw5V84ujymBAEQ2fcZLPkJ7-jL6A&e=1707976979&fl=&r=5215f51e6e55424d232674bee2f541b1-1&k=6BOTEHpIq1MbEDtGhouTTw&ckc=com.apple.skywagon.production&ckz=_defaultZone&p=48&s=xlFZoiVmsjY8UGnQTx1a3gSOFqE
+Authorization: Bearer {{token}}
