@@ -26,17 +26,26 @@ jobs:
         uses: golangci/golangci-lint-action@v3
         with:
           version: v1.54
-  release-linux-amd64:
-    name: release linux/amd64
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - uses: wangyoucao577/go-release-action@v1
-      with:
-        PRE_COMMAND: go mod tidy && go mod vendor
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        GOARCH: amd64
-        GOOS: linux
+  # release:
+  #   name: release
+  #   runs-on: ubuntu-lastest
+  #   steps:
+  #   - uses: actions/checkout@v4
+  #   - name: go dep installs
+  #     run: go get . && go mod vendor
+  #   - name: go build
+  #     run: go build - 
+  # release-linux-amd64:
+  #   name: release linux/amd64
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v4
+  #   - uses: wangyoucao577/go-release-action@v1
+  #     with:
+  #       PRE_COMMAND: go mod tidy && go mod vendor
+  #       GITHUB_TOKEN: ${{ secrets.TOKEN }}
+  #       GOARCH: amd64
+  #       GOOS: linux
   # release-windows-amd64:
   #   name: release windows/amd64
   #   runs-on: ubuntu-latest
