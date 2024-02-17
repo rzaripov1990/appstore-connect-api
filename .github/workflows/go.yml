@@ -7,6 +7,11 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+
+permissions:
+    contents: write
+    packages: write
+    
 jobs:
   golangci:
     name: lint
@@ -21,9 +26,35 @@ jobs:
         uses: golangci/golangci-lint-action@v3
         with:
           version: v1.54
-  build:
+  release-linux-amd64:
+    name: release linux/amd64
     runs-on: ubuntu-latest
     steps:
-    - name: Build
-      run: go build -v ./...
-  
+    - uses: actions/checkout@v4
+    - uses: wangyoucao577/go-release-action@v1
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GOARCH: amd64
+        GOOS: linux
+  release-windows-amd64:
+    name: release windows/amd64
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: compile and release
+      uses: ngs/go-release.action@v1.0.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GOARCH: amd64
+        GOOS: windows
+  release-darwin-amd64:
+    name: release darwin/amd64
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: compile and release
+      uses: ngs/go-release.action@v1.0.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GOARCH: amd64
+        GOOS: darwin
