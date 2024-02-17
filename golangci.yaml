@@ -1,0 +1,228 @@
+run:
+  concurrency: 4
+  deadline: 5m
+  skip-dirs:
+    - vendor
+    - gopath
+
+linters:
+  disable:
+    - contextcheck
+    - errcheck
+    - gofumpt
+    - gomoddirectives
+    - gosimple
+    - unused
+  enable:
+    - containedctx
+    - dogsled
+    - errname
+    - gocritic
+    - gosec
+    - govet
+    - ineffassign
+    - misspell
+    - nilerr
+    - prealloc
+    - promlinter
+    - revive
+    - staticcheck
+    - tenv
+    - testpackage
+    - unconvert
+
+linters-settings:
+  revive:
+    ignore-generated-header: true
+    severity: info
+    confidence: 0.8
+    rules:
+      - name: banned-characters
+        disabled: true
+      - name: call-to-gc
+        disabled: true
+      - name: confusing-naming
+        disabled: true
+      - name: context-as-argument
+        disabled: true
+      - name: error-naming
+        disabled: true
+      - name: error-return
+        disabled: true
+      - name: error-strings
+        disabled: true
+      - name: exported
+        disabled: true
+      - name: file-header
+        disabled: true
+      - name: flag-parameter
+        disabled: true
+      - name: imports-blacklist
+        disabled: true
+      - name: import-shadowing
+        disabled: true
+      - name: increment-decrement
+        disabled: true
+      - name: line-length-limit
+        disabled: true
+      - name: max-public-structs
+        disabled: true
+      - name: modifies-value-receiver
+        disabled: true
+      - name: optimize-operands-order
+        disabled: true
+      - name: package-comments
+        disabled: true
+      - name: string-format
+        disabled: true
+      - name: struct-tag
+        disabled: true
+      - name: time-naming
+        disabled: true
+      - name: var-naming
+        disabled: true
+      - name: unexported-naming
+        disabled: true
+      - name: unexported-return
+        disabled: true
+      - name: unhandled-error
+        disabled: true
+      - name: atomic
+      - name: blank-imports
+      - name: bool-literal-in-expr
+      - name: confusing-results
+      - name: constant-logical-expr
+      - name: context-keys-type
+      - name: datarace
+      - name: deep-exit
+      - name: defer
+      - name: dot-imports
+      - name: duplicated-imports
+      - name: early-return
+      - name: empty-block
+      - name: empty-lines
+      - name: errorf
+      - name: get-return
+      - name: identical-branches
+      - name: if-return
+      - name: indent-error-flow
+      - name: modifies-parameter
+      - name: nested-structs
+      - name: range
+      - name: range-val-in-closure
+      - name: range-val-address
+      - name: receiver-naming
+      - name: redefines-builtin-id
+      - name: string-of-int
+      - name: superfluous-else
+      - name: time-equal
+      - name: var-declaration
+      - name: unconditional-recursion
+      - name: unnecessary-stmt
+      - name: unreachable-code
+      - name: unused-parameter
+      - name: unused-receiver
+      - name: use-any
+      - name: useless-break
+      - name: waitgroup-by-value
+      - name: add-constant
+        arguments: 
+          - maxLitCount: "32"
+            allowStrings: '""'
+            allowInts: '-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,32,64,128,256,512,1024,2048,4096,8192,0xa,0xb,0xc,0xd,0xe,0xf'
+            allowFloats: '-1.0,0.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0,32.0,64.0,128.0,256.0,512.0,1024.0,2048.0,4096.0,8192.0'
+      - name: argument-limit
+        arguments: [8]
+      - name: cognitive-complexity
+        arguments: [48]
+      - name: cyclomatic
+        arguments: [32]
+      - name: function-result-limit
+        arguments: [4]
+      - name: function-length
+        arguments: [128,0]
+  staticcheck:
+    go: "1.21"
+  gocritic:
+    enabled-checks:
+      - appendAssign
+      - argOrder
+      - badCall
+      - badCond
+      - badLock
+      - badRegexp
+      - builtinShadowDecl
+      - caseOrder
+      - codegenComment
+      - commentedOutCode
+      - deprecatedComment
+      - dupArg
+      - dupBranchBody
+      - dupCase
+      - dupSubExpr
+      - emptyDecl
+      - evalOrder
+      - exitAfterDefer
+      - externalErrorReassign
+      - filepathJoin
+      - flagDeref
+      - flagName
+      - mapKey
+      - nilValReturn
+      - offBy1
+      - regexpPattern
+      - sloppyTypeAssert
+      - sortSlice
+      - sprintfQuotedString
+      - syncMapLoadAndDelete
+      - truncateCmp
+      - unnecessaryDefer
+      - weakCond
+      - assignOp
+      - boolExprSimplify
+      - builtinShadow
+      - commentFormatting
+      - commentedOutImport
+      - defaultCaseOrder
+      - deferUnlambda
+      - docStub
+      - emptyFallthrough
+      - emptyStringTest
+      - exposedSyncMutex
+      - hexLiteral
+      - methodExprCall
+      - newDeref
+      - octalLiteral
+      - paramTypeCombine
+      - preferFilepathJoin
+      - ptrToRefParam
+      - redundantSprint
+      - regexpMust
+      - singleCaseSwitch
+      - sloppyLen
+      - stringConcatSimplify
+      - switchTrue
+      - timeExprSimplify
+      - tooManyResultsChecker
+      - typeAssertChain
+      - typeDefFirst
+      - typeSwitchVar
+      - typeUnparen
+      - underef
+      - unlambda
+      - unslice
+      - valSwap
+      - wrapperFunc
+      - yodaStyleExpr
+      - appendCombine
+      - equalFold
+      - hugeParam
+      - indexAlloc
+      - preferDecodeRune
+      - preferFprint
+      - preferStringWriter
+      - preferWriteByte
+      - rangeExprCopy
+      - rangeValCopy
+      - sliceClear
+      - stringXbytes
